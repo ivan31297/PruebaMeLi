@@ -27,23 +27,23 @@ public class DNAServiceImplTest {
     DNAService dnaService;
 
     @Test
-    public void getMutantRatioTest(){
+    public void getMutantRatioTest() {
         Mockito.when(dnaRepository.findAll()).thenReturn(buildDNAModelArray());
         StatDto statDto = dnaService.getMutantRatio();
 
-        Assert.assertEquals(statDto.getCountHumanDna(),1);
-        Assert.assertEquals(statDto.getCountMutantDna(),2);
+        Assert.assertEquals(statDto.getCountHumanDna(), 1);
+        Assert.assertEquals(statDto.getCountMutantDna(), 2);
     }
 
     @Test
-    public void checkMutantDNAIsMutantTest(){
-        List<String> mutantAdn = List.of("ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG");
+    public void checkMutantDNAIsMutantTest() {
+        List<String> mutantAdn = List.of("ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG");
         boolean result = dnaService.checkMutantDNA(mutantAdn);
         Assert.assertTrue(result);
     }
 
     @Test
-    public void checkMutantDNAIsHumanTest(){
+    public void checkMutantDNAIsHumanTest() {
         List<String> mutantAdn = List.of(
                 "ATGCGA",
                 "CAGTGC",
@@ -56,22 +56,20 @@ public class DNAServiceImplTest {
     }
 
     @Test
-    public void checkSequenceDNATrueTest()
-    {
-        List<String> mutantAdn = List.of("ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG");
+    public void checkSequenceDNATrueTest() {
+        List<String> mutantAdn = List.of("ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG");
         boolean result = dnaService.checkSequenceDNA(mutantAdn);
         Assert.assertTrue(result);
     }
 
     @Test
-    public void checkSequenceDNAFalseTest()
-    {
-        List<String> mutantAdn = List.of("ATGCGA","CAGTG","TTAUGT","AGAaGG","CCuCTA","TCACTG");
+    public void checkSequenceDNAFalseTest() {
+        List<String> mutantAdn = List.of("ATGCGA", "CAGTG", "TTAUGT", "AGAaGG", "CCuCTA", "TCACTG");
         boolean result = dnaService.checkSequenceDNA(mutantAdn);
         Assert.assertFalse(result);
     }
 
-    private ArrayList<DNAModel> buildDNAModelArray(){
+    private ArrayList<DNAModel> buildDNAModelArray() {
         ArrayList<DNAModel> mutantList = new ArrayList<>();
         DNAModel dnaModel1 = new DNAModel();
         dnaModel1.setAdn("[ATGCGA, CAGTGC, TTATGT, AGAAGG, CCCCTA, TCACTG]");

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 /**
- *
  * @author Ivan
  * <p>Esta clase se encarga de la logíca de negocio y administra las solicitudes del servicio rest.
  */
@@ -30,7 +29,7 @@ public class DNAController {
 
     // Se inyecta DNAService a través del constructor.
     @Autowired
-    public DNAController(DNAService dnaService){
+    public DNAController(DNAService dnaService) {
         this.dnaService = dnaService;
     }
 
@@ -50,13 +49,16 @@ public class DNAController {
      */
     @PostMapping("/mutant/")
     public ResponseEntity<DNA> checkMutantDNA(@Valid @RequestBody DNA dna) {
-        HttpStatus response = HttpStatus.FORBIDDEN;
+        HttpStatus response;
 
-        if(dnaService.checkSequenceDNA(dna.getDna()))
-        {
-            if(dnaService.checkMutantDNA(dna.getDna())){
+        if (dnaService.checkSequenceDNA(dna.getDna())) {
+            if (dnaService.checkMutantDNA(dna.getDna())) {
                 response = HttpStatus.OK;
+            }else{
+                response= HttpStatus.FORBIDDEN;
             }
+        }else{
+            response = HttpStatus.BAD_REQUEST;
         }
 
         return new ResponseEntity<>(response);

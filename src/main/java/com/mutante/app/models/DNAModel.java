@@ -11,7 +11,6 @@ import lombok.Setter;
 import javax.persistence.*;
 
 /**
- *
  * @author Ivan
  * <p>Persitencia de datos
  */
@@ -20,16 +19,15 @@ import javax.persistence.*;
 @Table(name = "dna_records")
 @Getter
 @Setter
-public class DNAModel
-{
+public class DNAModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private int id;
 
-    @Column(length=100)
+    @Column(length = 100)
     private String adn;
 
-    @Column(length=3)
+    @Column(length = 3)
     private String isHuman;
 }

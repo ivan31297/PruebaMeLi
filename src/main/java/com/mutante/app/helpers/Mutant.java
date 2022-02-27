@@ -1,19 +1,17 @@
 package com.mutante.app.helpers;
 
 /**
- *
  * @author Ivan
  * <p>Esta clase se encarga de verificar las secuencias del DNA.
  */
 public class Mutant {
     /**
-     *
      * @param dna
      * @return
      */
     public static boolean isMutant(String[] dna) {
-        //Contabiliza total de combinaciones iguales
-        int recordsDna = 0;
+
+        int recordsDna = 0; //Contabiliza total de combinaciones iguales
         int positionRow = -1;
         int positionCol = -1;
         int positionVertRigthRow = -1;
@@ -22,8 +20,7 @@ public class Mutant {
         int positionVertLeftCol = -1;
 
         //Variable i recorre los string completos ej "ATAGC"
-        for (int i = 0; i < dna.length; i++)
-        {
+        for (int i = 0; i < dna.length; i++) {
             //j determina la posicion dentro del string
             for (int j = 0; j < dna[i].length(); j++) {
 
@@ -34,7 +31,7 @@ public class Mutant {
                         positionRow = j + 4;
                     }
                 }
-                if(j >= positionRow){
+                if (j >= positionRow) {
                     positionRow = -1;
                 }
 
@@ -46,8 +43,7 @@ public class Mutant {
                         positionCol = i + 4;
                     }
                 }
-                if(i >= positionCol)
-                {
+                if (i >= positionCol) {
                     positionCol = -1;
                 }
 
@@ -59,8 +55,7 @@ public class Mutant {
                         positionVertRigthCol = j + 4;
                     }
                 }
-                if(i >= positionVertRigthRow && j >= positionVertRigthCol)
-                {
+                if (i >= positionVertRigthRow && j >= positionVertRigthCol) {
                     positionVertRigthRow = -1;
                     positionVertRigthCol = -1;
                 }
@@ -73,8 +68,7 @@ public class Mutant {
                         positionVertLeftCol = j - 4;
                     }
                 }
-                if(i >= positionVertLeftRow && j >= positionVertLeftCol)
-                {
+                if (i >= positionVertLeftRow && j >= positionVertLeftCol) {
                     positionVertLeftRow = -1;
                     positionVertLeftCol = -1;
                 }

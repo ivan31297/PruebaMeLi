@@ -9,12 +9,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- *
  * @author Ivan
  * <p>Interface que hereda los metodos implementados en CrudRepository.
  * <p>Se heredan todos los metodos para realizar las diferentes acciones a la base de datos.
  */
 @Repository
-public interface DNARepository extends CrudRepository<DNAModel, Integer>
-{
+public interface DNARepository extends CrudRepository<DNAModel, Integer> {
 }

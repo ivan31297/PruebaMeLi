@@ -12,15 +12,13 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 
 /**
- *
  * @author Ivan
  * <p>Esta clase se encarga de modelar el DNA.
  */
 @Getter
 @Setter
 @NoArgsConstructor
-public class DNA
-{
+public class DNA {
     @NotNull
     private ArrayList<String> dna;
 }
