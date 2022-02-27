@@ -31,8 +31,8 @@ public class DNAServiceImplTest {
         Mockito.when(dnaRepository.findAll()).thenReturn(buildDNAModelArray());
         StatDto statDto = dnaService.getMutantRatio();
 
-        Assert.assertEquals(statDto.getCountHumanDna(), 1);
-        Assert.assertEquals(statDto.getCountMutantDna(), 2);
+        Assert.assertEquals(statDto.getCountHumanDna(), 2);
+        Assert.assertEquals(statDto.getCountMutantDna(), 1);
     }
 
     @Test
